@@ -1,0 +1,167 @@
+{
+  "SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/main/docs/settings.md",
+  "SettingsVersion": 1.2,
+  "SimMode": "Multirotor",
+  "CameraDefaults": {
+    "CaptureSettings": [
+      {
+        "ImageType": 0,
+        "Width": 512,
+        "Height": 512,
+        "FOV_Degrees": 90,
+        "AutoExposureMaxBrightness": 5.0,
+        "AutoExposureMinBrightness": 0.1,
+        "AutoExposureBias": 2.0,
+        "TargetGamma": 2.2
+      },
+      {
+        "ImageType": 1,
+        "Width": 128,
+        "Height": 128,
+        "FOV_Degrees": 90
+      }
+    ]
+  },
+  "Vehicles": {
+    "Drone0": {
+      "VehicleType": "SimpleFlight",
+      "AutoCreate": true,
+      "X": 0,
+      "Y": 0,
+      "Z": 0,
+      "Cameras": {
+        "front_camera": {
+          "CaptureSettings": [
+            {
+              "ImageType": 0,
+              "Width": 512,
+              "Height": 512,
+              "FOV_Degrees": 90,
+              "AutoExposureMaxBrightness": 5.0,
+              "AutoExposureMinBrightness": 0.1,
+              "AutoExposureBias": 2.0,
+              "TargetGamma": 2.2
+            },
+            {
+              "ImageType": 1,
+              "Width": 128,
+              "Height": 128,
+              "FOV_Degrees": 90
+            }
+          ],
+          "X": 0.5,
+          "Y": 0,
+          "Z": -0.1,
+          "Pitch": 0,
+          "Roll": 0,
+          "Yaw": 0
+        },
+        "back_camera": {
+          "CaptureSettings": [
+            {
+              "ImageType": 0,
+              "Width": 512,
+              "Height": 512,
+              "FOV_Degrees": 90,
+              "AutoExposureMaxBrightness": 5.0,
+              "AutoExposureMinBrightness": 0.1,
+              "AutoExposureBias": 2.0,
+              "TargetGamma": 2.2
+            },
+            {
+              "ImageType": 1,
+              "Width": 128,
+              "Height": 128,
+              "FOV_Degrees": 90
+            }
+          ],
+          "X": -0.5,
+          "Y": 0,
+          "Z": -0.1,
+          "Pitch": 0,
+          "Roll": 0,
+          "Yaw": 180
+        },
+        "left_camera": {
+          "CaptureSettings": [
+            {
+              "ImageType": 0,
+              "Width": 512,
+              "Height": 512,
+              "FOV_Degrees": 90,
+              "AutoExposureMaxBrightness": 5.0,
+              "AutoExposureMinBrightness": 0.1,
+              "AutoExposureBias": 2.0,
+              "TargetGamma": 2.2
+            },
+            {
+              "ImageType": 1,
+              "Width": 128,
+              "Height": 128,
+              "FOV_Degrees": 90
+            }
+          ],
+          "X": 0,
+          "Y": -0.5,
+          "Z": -0.1,
+          "Pitch": 0,
+          "Roll": 0,
+          "Yaw": -90
+        },
+        "right_camera": {
+          "CaptureSettings": [
+            {
+              "ImageType": 0,
+              "Width": 512,
+              "Height": 512,
+              "FOV_Degrees": 90,
+              "AutoExposureMaxBrightness": 5.0,
+              "AutoExposureMinBrightness": 0.1,
+              "AutoExposureBias": 2.0,
+              "TargetGamma": 2.2
+            },
+            {
+              "ImageType": 1,
+              "Width": 128,
+              "Height": 128,
+              "FOV_Degrees": 90
+            }
+          ],
+          "X": 0,
+          "Y": 0.5,
+          "Z": -0.1,
+          "Pitch": 0,
+          "Roll": 0,
+          "Yaw": 90
+        },
+        "nadir_camera": {
+          "CaptureSettings": [
+            {
+              "ImageType": 0,
+              "Width": 512,
+              "Height": 512,
+              "FOV_Degrees": 90,
+              "AutoExposureMaxBrightness": 5.0,
+              "AutoExposureMinBrightness": 0.1,
+              "AutoExposureBias": 2.0,
+              "TargetGamma": 2.2
+            },
+            {
+              "ImageType": 1,
+              "Width": 128,
+              "Height": 128,
+              "FOV_Degrees": 90
+            }
+          ],
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.3,
+          "Pitch": -90.0,
+          "Roll": 0.0,
+          "Yaw": 0.0
+        }
+      }
+    }
+  },
+  "ApiServerPort": 48531
+}

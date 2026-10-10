@@ -1,0 +1,9 @@
+numpy
+opencv-python
+pandas
+scipy
+airsim
+dashscope
+ultralytics
+torch
+transformers
