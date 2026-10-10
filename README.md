@@ -38,7 +38,7 @@ directly detects a target or clue itself. The result is a coupling mechanism
 that lets a cheap, broad high-altitude prior improve a capable low-altitude
 searcher without any extra training, and without ever overriding what the
 searcher sees with its own eyes. BGC-Nav is evaluated on
-[ESARBench](#environment-setup), and the method is designed to generalize to
+[ESARBench](#installation), and the method is designed to generalize to
 other low-altitude navigation backbones beyond the APEX agent used here.
 
 Code for the "Ours" method (training-free belief-guided coupling between a
@@ -49,7 +49,7 @@ This repository currently contains **only the Ours method's own code** —
 the agent itself, the offline belief-map builders, the evaluation runner, and
 the exact launch script/hyperparameters used for the paper's reported
 numbers. Baselines, the task dataset, and the simulation environment
-packages are **not** duplicated here; see "Environment setup" below.
+packages are **not** duplicated here; see "Installation" below.
 
 ## Method
 
@@ -113,30 +113,60 @@ python3 -c "import result_analysis; result_analysis.analyze_results()"
 (`result_analysis.py` expects `log_ours/` and the ESARBench dataset files
 described below to be present.)
 
-## Environment setup
+## Installation
 
 This repo does **not** bundle the ESARBench simulation environment, the UE5
-map packages, or the task dataset (`task_data.json`, `cue_list.json`). Set
-those up exactly as described in ESARBench's own installation guide:
+map packages, or the task dataset (`task_data.json`, `cue_list.json`) —
+those come from [ESARBench](https://github.com/4amGodvzx/ESAR). Set up
+ESARBench first, then drop this repo's `baselines_adaption/`, `source/`,
+`settings/`, and `cache/` into (or symlinked onto) that same checkout, so
+the relative paths each script expects (`../data/task_data.json`,
+`../UEPackage/<map>/...`, `../settings/...`) resolve correctly.
 
-- ESARBench repository / tutorial: **[add the ESARBench repo link here]**
+### Linux
 
-Once ESARBench is installed and its `data/` and UE5 map packages are in
-place, point this repo's `source/*.py` at the same relative layout ESARBench
-expects (`../data/task_data.json`, `../UEPackage/<map>/...`, `../settings/`)
-— i.e. this repo's `source/` and `settings/` directories are meant to sit
-inside an ESARBench checkout (or symlinked into one), not stand alone.
+1. Create a Python 3.9 conda environment:
+   ```bash
+   conda create -n esar_env python=3.9
+   conda activate esar_env
+   ```
+2. Install the required Python packages:
+   ```bash
+   pip install numpy msgpack-rpc-python pandas scipy dashscope opencv-python \
+       scikit-image scikit-fmm ultralytics matplotlib transformers pillow
+   ```
+   Install PyTorch separately for your CUDA version (needed to reproduce the
+   VLFM baseline). On headless servers, use `opencv-python-headless` instead
+   of `opencv-python`.
+3. Clone and install the AirSim-Colosseum client:
+   ```bash
+   git clone https://github.com/CodexLabsLLC/Colosseum.git
+   cd Colosseum/PythonClient
+   pip install -e . --no-build-isolation
+   ```
+4. Download the four UE5 map packages from
+   [ESARBench's Hugging Face dataset](https://huggingface.co/datasets/4amGodvzx/ESAR)
+   into `UEPackage/`.
+5. Set `DASHSCOPE_API_KEY` as an environment variable if you want the APEX
+   agent's VLM scene-analysis call (Qwen-VL via DashScope) to run — none of
+   the code in this repo reads a hardcoded key.
+6. If running on a headless Linux server (no display):
+   ```bash
+   sudo apt-get install xvfb x11-utils
+   ```
 
-Python dependencies: see `requirements.txt`. Additionally requires:
-- An AirSim-compatible UE5 build (from ESARBench) and the `airsim` Python
-  client.
+See [ESARBench's own README](https://github.com/4amGodvzx/ESAR) for the
+Windows installation steps, the required directory layout, map-launch
+command-line flags, and the UE/AirSim coordinate conversion — all of that
+applies unchanged here.
+
+### This repo's extra dependencies
+
+See `requirements.txt` for the rest. Additionally:
 - A YOLO-World checkpoint for the APEX agent's object detector (not
   included; see `baselines_adaption/apex/apex_agent.py` for the expected
-  path/format).
-- A `DASHSCOPE_API_KEY` environment variable if you want the APEX agent's
-  VLM scene-analysis call (`baselines_adaption/apex/vlm_analyzer.py`,
-  Qwen-VL via DashScope) to run — it reads the key from the environment
-  only, no key is bundled with this code.
+  path/format, or let `ultralytics` fetch `yolov8x-worldv2.pt` on first
+  run).
 
 ## What's deliberately not in this repo
 
