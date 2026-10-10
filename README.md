@@ -21,12 +21,23 @@ Pin Lv<sup>1</sup>
 
 ## 🚁 What Is BGC-Nav?
 
-**BGC-Nav** is a **training-free** coupling mechanism for cross-altitude
-multi-UAV search-and-rescue: a high-altitude UAV builds a task-conditioned
-**belief map**, and a low-altitude UAV's own frontier-exploration policy
-incorporates it as an advisory bias — never a rigid waypoint, and overridden
-the moment the low-altitude agent detects a target itself. BGC-Nav is
-evaluated on ESARBench.
+Single-UAV search-and-rescue is hard enough outdoors due to partial
+observability, and existing cross-altitude collaboration methods make it
+worse: they trust the high-altitude UAV's target localization as precise and
+dispatch it as a fixed coordinate the low-altitude UAV must reach, so a
+single bad high-altitude guess can override — and underperform — a
+low-altitude agent working alone. **BGC-Nav** is a **training-free**
+cross-altitude framework that fixes this with **Belief-Guided Coupling**: the
+high-altitude UAV incrementally builds a Global Belief Memory (a
+task-conditioned semantic prior, not a point estimate), and the low-altitude
+agent folds it into its own action scoring — discounted by where it has
+already searched (Local Exhaustion Memory), nudging nearby candidates (Local
+Attraction Augmentation), and leaning toward promising regions beyond its own
+view (Directional Belief Prior) — as an advisory bias that is capped below,
+and immediately overridden by, its own direct detections. On ESARBench, this
+lets BGC-Nav consistently outperform both single-agent and existing
+collaborative baselines, including when the high-altitude guidance is
+unreliable.
 
 This repository contains **only the Ours method's own code** — the agent,
 the offline belief-map builders, the evaluation runner, and the exact
