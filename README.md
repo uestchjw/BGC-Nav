@@ -6,6 +6,26 @@
 
 **BGC-Nav: Cross-Altitude Multi-UAV Collaborative Navigation via Belief-Guided Coupling**
 
+## 🚁 What Is BGC-Nav?
+
+BGC-Nav is a **training-free** framework for embodied, language-guided
+search-and-rescue with a pair of UAVs flying at different altitudes. A
+high-altitude UAV surveys broadly and builds a **belief map**: a
+task-conditioned estimate of where the mission's targets are likely to be,
+scored against the search prompt. A low-altitude UAV explores the terrain up
+close with its own frontier-exploration policy, and incorporates the
+high-altitude belief map through **Belief-Guided Coupling** — a lightweight
+bias on its own candidate-action scores, not a rigid waypoint command. The
+low-altitude agent keeps full autonomy: the belief map only nudges which
+nearby direction looks more promising, is strongest when the agent's own
+exploration policy is uncertain, and is overridden the moment the agent
+directly detects a target or clue itself. The result is a coupling mechanism
+that lets a cheap, broad high-altitude prior improve a capable low-altitude
+searcher without any extra training, and without ever overriding what the
+searcher sees with its own eyes. BGC-Nav is evaluated on
+[ESARBench](#environment-setup), and the method is designed to generalize to
+other low-altitude navigation backbones beyond the APEX agent used here.
+
 Code for the "Ours" method (training-free belief-guided coupling between a
 high-altitude relevance/belief map and a low-altitude frontier-exploration
 agent) evaluated on ESARBench.
