@@ -155,26 +155,10 @@ the relative paths each script expects (`../data/task_data.json`,
    sudo apt-get install xvfb x11-utils
    ```
 
+7. Place a YOLO-World checkpoint at `source/yolov8x-worldv2.pt` for the APEX
+   agent's object detector, or let `ultralytics` fetch it on first run.
+
 See [ESARBench's own README](https://github.com/4amGodvzx/ESAR) for the
 Windows installation steps, the required directory layout, map-launch
 command-line flags, and the UE/AirSim coordinate conversion — all of that
 applies unchanged here.
-
-### This repo's extra dependencies
-
-See `requirements.txt` for the rest. Additionally:
-- A YOLO-World checkpoint for the APEX agent's object detector (not
-  included; see `baselines_adaption/apex/apex_agent.py` for the expected
-  path/format, or let `ultralytics` fetch `yolov8x-worldv2.pt` on first
-  run).
-
-## What's deliberately not in this repo
-
-- Other baselines (SemExp, NavGPT, UniGoal, SPF, VLFM, random/FBE/MLLM
-  agents) — `main_platform_linux.py` imports them because it is ESARBench's
-  shared multi-baseline runner, but their own code is bundled here only as
-  a dependency of that shared runner, not as part of "Ours".
-- `baselines_adaption/hl_coord/prompt_decomp.py` (role-decomposition) — used
-  by a separate ablation, not the paper's main config.
-- The ESARBench dataset, cue lists, and UE5 map packages — get these from
-  ESARBench directly.
