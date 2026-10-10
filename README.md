@@ -38,7 +38,7 @@ directly detects a target or clue itself. The result is a coupling mechanism
 that lets a cheap, broad high-altitude prior improve a capable low-altitude
 searcher without any extra training, and without ever overriding what the
 searcher sees with its own eyes. BGC-Nav is evaluated on
-[ESARBench](#installation), and the method is designed to generalize to
+ESARBench (see "Installation" below), and the method is designed to generalize to
 other low-altitude navigation backbones beyond the APEX agent used here.
 
 Code for the "Ours" method (training-free belief-guided coupling between a
@@ -90,7 +90,7 @@ Two belief-map sources are evaluated:
 Both are drop-in: `main_platform_survey.py --relevance-dir <dir>` just reads
 whichever `.npz` cache you point it at.
 
-## Quick Start
+## 🚀 Quick Start
 
 ```bash
 cd BGC-Nav
@@ -113,7 +113,7 @@ python3 -c "import result_analysis; result_analysis.analyze_results()"
 (`result_analysis.py` expects `log_ours/` and the ESARBench dataset files
 described below to be present.)
 
-## Installation
+## 🛠️ Installation
 
 This repo does **not** bundle the ESARBench simulation environment, the UE5
 map packages, or the task dataset (`task_data.json`, `cue_list.json`) —
