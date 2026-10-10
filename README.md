@@ -6,6 +6,19 @@
 
 **BGC-Nav: Cross-Altitude Multi-UAV Collaborative Navigation via Belief-Guided Coupling**
 
+<p align="center">
+<a href="mailto:haojiuwu2022@ia.ac.cn">Jiuwu Hao</a><sup>1,2</sup>,
+Yueyang Wu<sup>1,2</sup>,
+Liguo Sun<sup>1</sup>,
+Haolin Song<sup>1,2</sup>,
+Zao Zhang<sup>1</sup>,
+Pin Lv<sup>1</sup>
+</p>
+<p align="center">
+<sup>1</sup>Institute of Automation, Chinese Academy of Sciences &nbsp;
+<sup>2</sup>School of Artificial Intelligence, University of Chinese Academy of Sciences
+</p>
+
 ## 🚁 What Is BGC-Nav?
 
 BGC-Nav is a **training-free** framework for embodied, language-guided
