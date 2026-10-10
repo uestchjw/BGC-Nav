@@ -1,5 +1,3 @@
-# BGC-Nav
-
 <p align="center">
   <img src="docs/bgc-nav-violet-light.svg" alt="BGC-Nav" width="500">
 </p>
