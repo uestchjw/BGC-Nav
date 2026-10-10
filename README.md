@@ -103,7 +103,7 @@ python3 -c "import result_analysis; result_analysis.analyze_results()"
 (`result_analysis.py` expects `log_ours/` and the ESARBench dataset files
 described above to be present.)
 
-## Citation
+## ✒️ Citation
 
 ```bibtex
 @inproceedings{hao2026bgcnav,
@@ -111,3 +111,9 @@ described above to be present.)
   author    = {Hao, Jiuwu and Wu, Yueyang and Sun, Liguo and Song, Haolin and Zhang, Zao and Lv, Pin},
 }
 ```
+
+## ✨ Acknowledgements
+
+This work is built and evaluated on [ESARBench](https://github.com/4amGodvzx/ESAR),
+a benchmark for agentic UAV embodied search and rescue. We thank its authors
+for the simulation environment, task dataset, and baseline implementations.
