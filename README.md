@@ -4,7 +4,9 @@
   <img src="docs/bgc-nav-violet-light.svg" alt="BGC-Nav" width="500">
 </p>
 
-**BGC-Nav: Cross-Altitude Multi-UAV Collaborative Navigation via Belief-Guided Coupling**
+<p align="center">
+<b>BGC-Nav: Cross-Altitude Multi-UAV Collaborative Navigation via Belief-Guided Coupling</b>
+</p>
 
 <p align="center">
 <a href="mailto:haojiuwu2022@ia.ac.cn">Jiuwu Hao</a><sup>1,2</sup>,
