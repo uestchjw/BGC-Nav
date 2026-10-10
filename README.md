@@ -21,33 +21,16 @@ Pin Lv<sup>1</sup>
 
 ## 🚁 What Is BGC-Nav?
 
-BGC-Nav is a **training-free** framework for embodied, language-guided
-search-and-rescue with a pair of UAVs flying at different altitudes. A
-high-altitude UAV surveys broadly and builds a **belief map**: a
-task-conditioned estimate of where the mission's targets are likely to be,
-scored against the search prompt. A low-altitude UAV explores the terrain up
-close with its own frontier-exploration policy, and incorporates the
-high-altitude belief map through **Belief-Guided Coupling** — a lightweight
-bias on its own candidate-action scores, not a rigid waypoint command. The
-low-altitude agent keeps full autonomy: the belief map only nudges which
-nearby direction looks more promising, is strongest when the agent's own
-exploration policy is uncertain, and is overridden the moment the agent
-directly detects a target or clue itself. The result is a coupling mechanism
-that lets a cheap, broad high-altitude prior improve a capable low-altitude
-searcher without any extra training, and without ever overriding what the
-searcher sees with its own eyes. BGC-Nav is evaluated on
-ESARBench (see "Installation" below), and the method is designed to generalize to
-other low-altitude navigation backbones beyond the APEX agent used here.
+**BGC-Nav** is a **training-free** coupling mechanism for cross-altitude
+multi-UAV search-and-rescue: a high-altitude UAV builds a task-conditioned
+**belief map**, and a low-altitude UAV's own frontier-exploration policy
+incorporates it as an advisory bias — never a rigid waypoint, and overridden
+the moment the low-altitude agent detects a target itself. BGC-Nav is
+evaluated on ESARBench.
 
-Code for the "Ours" method (training-free belief-guided coupling between a
-high-altitude relevance/belief map and a low-altitude frontier-exploration
-agent) evaluated on ESARBench.
-
-This repository currently contains **only the Ours method's own code** —
-the agent itself, the offline belief-map builders, the evaluation runner, and
-the exact launch script/hyperparameters used for the paper's reported
-numbers. Baselines, the task dataset, and the simulation environment
-packages are **not** duplicated here; see "Installation" below.
+This repository contains **only the Ours method's own code** — the agent,
+the offline belief-map builders, the evaluation runner, and the exact
+launch script/hyperparameters used for the paper's reported numbers.
 
 ## Method
 
