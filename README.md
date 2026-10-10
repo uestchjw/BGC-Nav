@@ -1,5 +1,11 @@
 # BGC-Nav
 
+<p align="center">
+  <img src="docs/bgc-nav-violet-light.svg" alt="BGC-Nav" width="500">
+</p>
+
+**BGC-Nav: Cross-Altitude Multi-UAV Collaborative Navigation via Belief-Guided Coupling**
+
 Code for the "Ours" method (training-free belief-guided coupling between a
 high-altitude relevance/belief map and a low-altitude frontier-exploration
 agent) evaluated on ESARBench.
