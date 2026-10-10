@@ -90,7 +90,7 @@ Two belief-map sources are evaluated:
 Both are drop-in: `main_platform_survey.py --relevance-dir <dir>` just reads
 whichever `.npz` cache you point it at.
 
-## Running the paper's best config
+## Quick Start
 
 ```bash
 cd BGC-Nav
