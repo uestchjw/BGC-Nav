@@ -15,7 +15,7 @@ Zao Zhang<sup>1</sup>,
 Pin Lv<sup>1</sup>
 </p>
 <p align="center">
-<sup>1</sup>Institute of Automation, Chinese Academy of Sciences &nbsp;
+<sup>1</sup>CASIA &nbsp;
 <sup>2</sup>School of Artificial Intelligence, University of Chinese Academy of Sciences
 </p>
 
